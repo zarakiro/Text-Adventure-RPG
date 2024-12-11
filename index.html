@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text RPG Adventure</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Metamorphous&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <div id="app">
+        <h1>Text RPG Adventure</h1>
+        <div id="setup-container">
+            <input type="text" id="user-scenario" placeholder="Écrivez un scénario de départ..." />
+            <button id="generate-story">Play</button>
+            <button id="random-story">Generate Random Story</button>
+        </div>
+        <div id="game-container" style="display: none;">
+            <div id="history-container">
+                <h2>Current adventure history</h2>
+                <ul id="history-list">
+                    <!-- Résumés et choix seront affichés ici -->
+                </ul>
+            </div>
+            <div id="adventure-container">
+                <p id="status-text" style="display: none; font-style: italic; color: gray;">Generating Story...</p>
+                <p id="story">
+                    <!-- Le scénario généré apparaîtra ici -->
+                </p>
+                <div id="choices-container">
+                    <!-- Les choix générés apparaîtront ici -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script type="module" src="script.js"></script>
+</body>
+</html>

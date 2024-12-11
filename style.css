@@ -1,0 +1,151 @@
+/* Global Style */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000; /* Fond noir */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.metamorphous-regular {
+    font-family: "Metamorphous", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+/* Background Image */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    background-image: url('background.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(8px) brightness(0.5); /* Effet flou et assombrissement */
+    z-index: -1;
+}
+
+/* Main Container */
+#app {
+    background-color: rgba(255, 255, 255, 0.9); /* Légèrement transparent */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    max-width: 1000px;
+    width: 90%;
+}
+h1 {
+    font-family: "Metamorphous" , serif;
+    color: rgb(87, 14, 14);
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Setup Container */
+#setup-container {
+    margin-bottom: 20px;
+}
+#setup-container input {
+    padding: 10px;
+    font-size: 1rem;
+    width: 60%;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+#setup-container button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+}
+#setup-container button:hover {
+    background-color: #0056b3;
+}
+
+
+/* Game Container */
+#game-container {
+    display: flex;
+    max-width: 1000px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+/* History Container*/
+#history-container {
+    width: 30%;
+    background-color: rgba(0, 0, 0, 0.8); /* Transparent noir */
+    padding: 15px;
+    border-right: 1px solid #333;
+    overflow-y: auto;
+    max-height: 80vh;
+    box-sizing: border-box;
+    color: #fff;
+}
+#history-list {
+    list-style-type: none;
+    padding: 0;
+}
+#history-list li {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: #ddd;
+}
+.summary-entry {
+    margin-bottom: 10px;
+    color: aqua;
+}
+.choice-entry {
+    font-weight: italic;
+    margin-bottom: 10px;
+}
+
+/* Adventure Container */
+#adventure-container {
+    width: 70%;
+    padding: 20px;
+    box-sizing: border-box;
+    color: #fff;
+}
+#story {
+    font-family: "Metamorphous" , serif;
+    color: black;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+#choices-container {
+    margin-bottom: 20px;
+    font-style: italic; 
+    color: gray;
+}
+#choices-container button {
+    display: block;
+    padding: 10px;
+    font-family: "Metamorphous" , serif;
+    color: black;
+    font-size: 0.8rem;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+    background-color: #235891;
+    color: white;
+    cursor: pointer;
+}
+#choices-container button:hover {
+    background-color: #1b324a;
+}
+
