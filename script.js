@@ -26,6 +26,8 @@ function formatHistory(history) {
             return entry.summary; // Ajouter le résumé tel quel
         } else if (entry.choice) {
             return `Choice taken : ${entry.choice}`; // Ajouter le choix avec un préfixe
+        } else if (entry.pitch) {
+            return `Pitch : ${entry.pitch}`; // Ajouter le pitch avec un pré
         }
         return '';
     }).join("\n"); // Chaque élément est séparé par un saut de ligne
