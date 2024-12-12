@@ -49,22 +49,22 @@ async function generateStory() {
     const generatedText = output[0].generated_text[2].content;
     console.log(generatedText);
 
-    // Résumer l'histoire
-    console.log("Summarizing story...");
-    const summary = await summarizeText(generatedText);
-    history.push({"summary":summary});
-    console.log("history : ",history);
-    updateHistoryDisplay();
-
     // Vérifier les conditions de fin
     if (generatedText.includes("VICTORY") || generatedText.includes("DEFEAT")) {
         gameOver = true;
         document.getElementById("choices-container").innerHTML = "<p>Fin du jeu.</p>";
         return;
     }
+
     statusText.style.display = "none";
     // Mettre à jour l'affichage principal
     document.getElementById("story").textContent = generatedText;
+    // Résumer l'histoire
+    console.log("Summarizing story...");
+    const summary = await summarizeText(generatedText);
+    history.push({"summary":summary});
+    console.log("history : ",history);
+    updateHistoryDisplay();
     // Générer les choix
     generateChoices(generatedText);
 }
@@ -92,7 +92,7 @@ function updateHistoryDisplay() {
 // Génération des choix
 async function generateChoices(story) {
     const choicesMessage = [
-        { role: "system", content: "Generate exactly three distinct actions/choices that the player can take in a text-based adventure RPG based on the current adventure. Each action should be clear and concise, presented on a separate line without any additional comments, formatting, or symbols.You have max 120 words. After listing the three actions, leave a blank line using this template: Action 1:  Action 2:  Action 3:." },
+        { role: "system", content: "Generate exactly three distinct actions/choices that the player can take in a text-based adventure RPG based on the current adventure. Each action should be clear and concise, presented on a separate line without any additional comments, formatting, or symbols. You have max 120 words. After listing the three actions, leave a blank line using this template: Action 1:... Action 2:... Action 3:..." },
         { role: "user", content: story }
     ];
     document.getElementById("choices-container").textContent= "Generating Choices...";
@@ -101,7 +101,13 @@ async function generateChoices(story) {
     const choicesText = choicesOutput[0].generated_text[2].content;
     console.log(choicesText);
 
-    const choices = choicesText.split("\n").map(choice => choice.trim()).filter(choice => choice.length > 0);
+    const choiceRegex = /Action \d+:\s*(.*?)(?=(Action \d+:|$))/gs;
+    const choices = [];
+    let match;
+    while ((match = choiceRegex.exec(choicesText)) !== null) {
+        choices.push(match[1].trim());
+    }
+    
     const choicesContainer = document.getElementById("choices-container");
     choicesContainer.innerHTML = '';
     choices.forEach(choice => {
