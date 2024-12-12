@@ -79,6 +79,9 @@ function updateHistoryDisplay() {
         } else if (entry.choice) {
             li.textContent = "Player chose: " + entry.choice;
             li.classList.add("choice-entry");
+        }else if (entry.pitch) {
+            li.textContent = "Pitch: " + entry.pitch;
+            li.classList.add("pitch-entry");
         }
         historyList.appendChild(li);
     });
@@ -123,7 +126,7 @@ document.getElementById("generate-story").onclick = () => {
     if (userInput) {
         document.getElementById("setup-container").style.display = "none";
         document.getElementById("game-container").style.display = "flex";
-        history.push({"summary":userInput});
+        history.push({"pitch":userInput});
         generateStory();
     } else {
         alert("Please write a scenario or choose the 'Generate random story' button.");
@@ -134,6 +137,6 @@ document.getElementById("random-story").onclick = () => {
     document.getElementById("setup-container").style.display = "none";
     document.getElementById("game-container").style.display = "flex";
     const randomScenario = "A fantasy adventure in which the player must save the kingdom from an evil dragon.";
-    history.push({"summary":randomScenario});
+    history.push({"pitch":randomScenario});
     generateStory();
 };
