@@ -14,6 +14,8 @@ Try the game online on GitHub Pages: [Play the game](https://zarakiro.github.io/
 
 ## Preview
 ![Game Preview](https://github.com/user-attachments/assets/8123ba87-7279-4ccd-97ab-a3e870a195aa)
+![Ingame Preview](https://github.com/user-attachments/assets/9837ef7e-8d2a-4773-ae57-2c49bd5192ec)
+
 
 ## Installation
 
