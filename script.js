@@ -41,7 +41,7 @@ async function generateStory() {
     const formattedHistory = formatHistory(history);
     console.log("formatted History:", formattedHistory);
     const messages = [
-        { role: "system", content: "You're the narrator of a text-based adventure game, responsible for creating an immersive narrative that evolves according to the current adventure. Create a convincing character for the player by being on a first-name basis. Your story should draw the user in, offering rich descriptions and captivating plot developments. Conclude with an exciting or suspenseful event that leaves the user eager to know what happens next.Your answer must not exceed 130 words and end with a complete sentence, ensuring that no sentence is truncated.If the player reaches a win or lose condition, state clearly 'GAME OVER: VICTORY' or 'GAME OVER: DEFEAT'. Max 130 words. Do not offer the player any choice. " },
+        { role: "system", content: "You're the narrator of a text-based adventure game, responsible for creating an immersive narrative that evolves according to the current adventure and the current choices from the player. Create a convincing character for the player by being on a first-name basis. Your story should draw the user in, offering rich descriptions and captivating plot developments. Conclude with an exciting or suspenseful event that leaves the user eager to know what happens next.Your answer must not exceed 130 words and end with a complete sentence, ensuring that no sentence is truncated. Max 130 words. Don't offer the player any choice, they will be created after.Try to end the story if it's too long or too dangerous for the player and state clearly 'GAME OVER: VICTORY' or 'GAME OVER: DEFEAT'. " },
         { role: "user", content: formattedHistory }
     ];
     console.log("Generating story...");
@@ -92,12 +92,12 @@ function updateHistoryDisplay() {
 // Génération des choix
 async function generateChoices(story) {
     const choicesMessage = [
-        { role: "system", content: "Generate exactly three distinct actions/choices that the player can take in a text-based adventure RPG based on the current adventure. Each action should be clear and concise, presented on a separate line without any additional comments, formatting, or symbols. After listing the three actions, leave a blank line.Action 1:  Action 2:  Action 3:.Your response must be no longer than 100 words" },
+        { role: "system", content: "Generate exactly three distinct actions/choices that the player can take in a text-based adventure RPG based on the current adventure. Each action should be clear and concise, presented on a separate line without any additional comments, formatting, or symbols.You have max 120 words. After listing the three actions, leave a blank line using this template: Action 1:  Action 2:  Action 3:." },
         { role: "user", content: story }
     ];
     document.getElementById("choices-container").textContent= "Generating Choices...";
     console.log("Generating choices...");
-    const choicesOutput = await generator(choicesMessage, { max_new_tokens: 128 });
+    const choicesOutput = await generator(choicesMessage, { max_new_tokens: 150 });
     const choicesText = choicesOutput[0].generated_text[2].content;
     console.log(choicesText);
 
