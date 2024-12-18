@@ -12,10 +12,12 @@ Text RPG Adventure is an immersive text-based game playable directly in a web br
 ## Demo
 Try the game online on GitHub Pages: [Play the game](https://zarakiro.github.io/Text-Adventure-RPG/)
 
+## Important Note
+When launching the game, please wait for the AI model to load. You will see a message "Model Loaded" displayed on the page when it's ready to play.
+
 ## Preview
 ![Game Preview](https://github.com/user-attachments/assets/8123ba87-7279-4ccd-97ab-a3e870a195aa)
 ![Ingame Preview](https://github.com/user-attachments/assets/9837ef7e-8d2a-4773-ae57-2c49bd5192ec)
-
 
 ## Installation
 
@@ -30,7 +32,8 @@ Try the game online on GitHub Pages: [Play the game](https://zarakiro.github.io/
    git clone https://github.com/<your-github-username>/<repo-name>.git
    ```
 3. Open the `index.html` file in your browser.
-4. Enjoy the game!
+4. Wait for the "Model Loaded" message to appear.
+5. Enjoy the game!
 
 ## Development
 
@@ -46,4 +49,4 @@ Try the game online on GitHub Pages: [Play the game](https://zarakiro.github.io/
 
 ## Acknowledgments
 Thanks to the open-source libraries and tools that made this project possible, including Hugging Face and Google Fonts.
-
+```
