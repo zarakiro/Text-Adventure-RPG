@@ -49,4 +49,3 @@ When launching the game, please wait for the AI model to load. You will see a me
 
 ## Acknowledgments
 Thanks to the open-source libraries and tools that made this project possible, including Hugging Face and Google Fonts.
-```
