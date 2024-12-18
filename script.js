@@ -1,10 +1,13 @@
 import { pipeline } from 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.1.2';
 
+let loadingStatus=document.getElementById("loading-status");
+loadingStatus.textContent="Loading model...";
 console.log("Loading model...");
 const generator = await pipeline('text-generation', 'onnx-community/Llama-3.2-1B-Instruct-q4f16', {
     device: 'webgpu',
 });
 console.log("Model loaded");
+loadingStatus.textContent="Model loaded";
 
 let history = []; // Historique condensé (résumés et choix)
 let gameOver = false; // Vérifie si le jeu est terminé
